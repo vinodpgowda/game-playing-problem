@@ -1,64 +1,75 @@
-# Game Playing Problem
+# AI Agent for Red-Blue Nim
 
-To build an AI agent to play a modified version of nim called red-blue nim against a human player. The game consists of two piles of marbles, red and blue. On each players turn they pick a pile and remove one marble from it. If on their turn, either pile is empty then they win. The amount they win is dependent on the number of marbles left: 2 for every red marble and 3 for every blue marble. So if on the computer player turn, it has 0 red marbles and 3 blue marbles, it wins 9 points.
+## Project Overview
 
-## Programming Language and Version Used - Python 3.9.13
+This project implements an **AI agent** to play a modified version of the Nim game, called **Red-Blue Nim**, against a human player. The agent uses **Minimax with Alpha-Beta Pruning** to determine optimal moves, ensuring strategic gameplay in both the **standard** and **misère** versions of the game.
 
-## Code Structure  
-Follows Functional and Procedural Programming
+The game involves two piles of marbles: red and blue. Players take turns removing marbles from a pile, and the outcome depends on the version played and the marbles left.
 
-### Functions used in the main program:
+### Game Variants:
+- **Standard**: The player loses if a pile is empty on their turn.
+- **Misère**: The player wins if a pile is empty on their turn.
 
-1. alpha_beta_decision(current_state)    
-returns the action to take for an input state using minimax search with alpha beta pruning
+## Key Features
 
-2. max_value(current_state,alpha,beta)  
-returns the maximum utility value for an input state from the max player's perspective 
+- Implements **Minimax with Alpha-Beta Pruning** for efficient decision-making.
+- Supports both **standard** and **misère** game variants.
+- Computes scores based on remaining marbles (2 points per red marble, 3 points per blue marble).
+- Interactive gameplay where human players provide inputs via the command line.
 
-3. min_value(current_state,alpha,beta)  
-returns the minimum utility value for an input state from the max player's perspective  
+## Code Structure
 
-4. terminal_test(state)  
-returns 1 if the input state is a terminal node or leaf by checking if either of the pile of balls is empty
+The code is written in **Python** and follows a functional programming approach with a procedural flow for game execution.
 
-5. utility(state)   
-returns the points of the input state deriving from the remaining number of red and blue balls 2 points for a red ball and 3 points for a blue ball
+### Key Functions:
+1. **alpha_beta_decision(state)**: Determines the optimal move using Minimax with Alpha-Beta Pruning.
+2. **max_value(state, alpha, beta)**: Calculates the maximum utility for the AI player.
+3. **min_value(state, alpha, beta)**: Calculates the minimum utility for the opponent.
+4. **terminal_test(state)**: Checks if the game has reached an end state.
+5. **utility(state)**: Computes the score for a given state based on the marbles left.
+6. **result(action, state)**: Updates the game state based on the chosen action.
 
-6. pick(action)  
-returns the picked ball for an input action
+## Running the Game
 
-### Procedural Programming for the methods to solve the puzzle:
-        
-1. Store the number of red and blue balls passed in the arguments
-2. Initializing the dictionary called initial_state with the stored number of red and blue balls
-3. Check for who's turn to play first, by default it is computer's turn to play first
-4. Game starts
-While loop to run till either of the pile of balls is empty
-5. Game ends
-Prints the winner and their points score.
+### Prerequisites
+- **Python 3.9+**
 
-## Instructions To Run The Code 
+### Command-Line Usage
+Run the program using the following format:
+```bash
+python red_blue_nim.py <num-red> <num-blue> <first-player>
+```
 
-### command line command format to run the code is :
+### Parameters
 
-*python red_blue_nim.py \<num-red> \<num-blue> \<first-player>*  
-- num-red : number of red balls  
-- num-blue : number of blue balls  
-- first-player : To specify who's turn to play first  
-"Human" or "human" or "HUMAN" for human's turn, anything else than these 3 strings the program is to run with default option  
-By default it is computer's turn to play first 
+- `<num-red>`: Number of red marbles.
+- `<num-blue>`: Number of blue marbles.
+- `<first-player>` (optional): Set to `human` for the human to start. Defaults to the computer.
 
-Example commands :  
-- 13 red balls, 15 blue balls, and computer has first turn to play the game :  
-*python red_blue_nim.py 13 15*  
-- 21 red balls, 19 blue balls, and human has first turn to play the game :  
-*python red_blue_nim.py 21 19 human*  
+### Examples
 
-#### Note  
-Please specify the number of red and blue balls while running the program in the command line, otherwise the whole program is of no use. The program will exit and suggests to pass number of balls to start the game. 
-You may have to kill the program in the command line with "control + c" command and run again with desired number of red and blue balls.
-      
-## Contents Of The Directory
+- Start with 13 red marbles, 15 blue marbles, and the computer as the first player:
+    ```bash
+    python red_blue_nim.py 13 15
+    ```
 
-- The source code - red_blue_nim.py
-- The readme file - README.md
+- Start with 21 red marbles, 19 blue marbles, and the human as the first player:
+    ```bash
+    python red_blue_nim.py 21 19 human
+    ```
+
+### Notes
+
+- Ensure the number of red and blue marbles is specified. If not, the program will exit with an error.
+
+### Repository Contents
+
+- **Source Code**: `red_blue_nim.py`
+- **Readme File**: `README.md`
+
+### Future Scope
+
+- Implement depth-limited Minimax for enhanced scalability.
+- Add visualization to represent the state space and decision-making process.
+- Extend the game to support multiplayer scenarios.
+
