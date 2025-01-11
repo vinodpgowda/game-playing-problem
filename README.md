@@ -1,8 +1,8 @@
 # AI Agent for Red-Blue Nim
 
-## Project Overview
+## Project Overview  
 
-This project implements an **AI agent** to play a modified version of the Nim game, called **Red-Blue Nim**, against a human player. The agent uses **Minimax with Alpha-Beta Pruning** to determine optimal moves, ensuring strategic gameplay in both the **standard** and **misère** versions of the game.
+The AI Agent for Red-Blue Nim is designed to play a modified version of the Nim game against a human player. Using Minimax with Alpha-Beta Pruning, it calculates optimal moves to ensure strategic gameplay in both standard and misère versions of the game. The game involves two piles of marbles, and players take turns removing marbles. The outcome depends on the version played and the marbles left in the piles.
 
 The game involves two piles of marbles: red and blue. Players take turns removing marbles from a pile, and the outcome depends on the version played and the marbles left.
 
